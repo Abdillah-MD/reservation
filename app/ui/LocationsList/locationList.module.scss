@@ -1,0 +1,49 @@
+// Pour la liste des location
+.locationList {
+    width: 100%;
+
+    h2 {
+        margin: 30px;
+    }
+
+    .ListContainer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 25px;
+
+        article {
+            box-shadow: 2px 2px 10px rgb(193, 193, 193);
+            border-radius: 10px;
+            padding: 10px 10px 20px;
+            width: 240px;
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+
+            h3,
+            p {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .reservationBtn {
+                background: linear-gradient(90deg, #1278f6, black);
+                border-radius: 15px;
+                color: white;
+                padding: 8px 14px;
+                margin: 20px 0;
+                display: inline-block;
+            }
+        }
+    }
+}

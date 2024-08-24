@@ -12,10 +12,7 @@ const CreateObjet = () => {
     const [data, setData] = useState({
         productName: '',
         price: 0,
-        reservation: [{
-            startDate: '',
-            endDate: '',
-        }],
+        reservation: [],
     });
     let imageUrl: string
 
@@ -63,6 +60,18 @@ const CreateObjet = () => {
             // Si envoie réussi
             if (sendData.ok) {
                 alert("Objet à loué créer avec succès !")
+                // Assurez-vous que e.target est bien un formulaire HTML
+                const form = e.target as HTMLFormElement;
+                form.reset();  // Réinitialiser le formulaire
+
+                // Réinitialiser les états
+                setFile(null);
+                setPreviewUrl(null);
+                setData({
+                    productName: '',
+                    price: 0,
+                    reservation: [],
+                });
             } else {
                 console.error('Error saving event:', await sendData.json());
                 alert("Ooops une erreur surevenue lors l'envoie ")

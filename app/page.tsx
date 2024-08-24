@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import DateRange from "./ui/SelectDateRange/dateRange";
 import CreateObjet from "./ui/CreateObjetALouer/createObjetALouer";
+import LocationsList from "./ui/LocationsList/LocationList";
 
 export default function Home() {
   return (
@@ -19,11 +20,11 @@ export default function Home() {
           >
             By{" "}
             <Image
-              src="https://dynect.fr/assets/images/logo/DynectA.svg"
+              src="/Dynect.png"
               alt="Vercel Logo"
               className={styles.vercelLogo}
               width={100}
-              height={54}
+              height={100}
               priority
             />
           </a>
@@ -32,6 +33,7 @@ export default function Home() {
       <div className="createObject">
         <CreateObjet />
         <DateRange />
+        <LocationsList />
       </div>
     </main>
   );
