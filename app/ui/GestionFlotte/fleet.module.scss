@@ -1,0 +1,136 @@
+/* Conteneur principal */
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    overflow-x: auto;
+}
+
+/* Conteneur des mois */
+.monthsContainer {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 10px;
+}
+
+/* En-tête des mois */
+.monthHeader {
+    flex-shrink: 0;
+    padding: 10px;
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+    min-width: 150px;
+    border: 1px solid #ddd;
+}
+
+/* Conteneur du tableau */
+.tableContainer {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 10px 10px 0;
+    overflow-x: auto;
+    /* Permet le défilement horizontal */
+    white-space: nowrap;
+    /* Évite que le tableau se casse */
+}
+
+/* Tableau avec largeur fixe pour les colonnes */
+.fleetTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    /* Fixe la largeur des colonnes */
+}
+
+/* En-tête du tableau */
+.fleetTable thead th {
+    background-color: #f4f4f4;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border: 1px solid #ddd;
+}
+
+/* Colonne fixe */
+.sticky_col {
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+    z-index: 5;
+    /* Assurez-vous que la colonne fixe reste au-dessus des autres colonnes */
+    border-right: 2px solid #ddd;
+    /* Ajouter une bordure pour une meilleure visibilité */
+}
+
+// Bien à louer 
+.bienALouer {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    gap: 10px;
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-right: 2px solid #ddd;
+
+    img {
+        border-radius: 10px;
+    }
+
+    p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+/* En-tête de date */
+.dateHeader {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    width: 60px;
+    background-color: #f4f4f4;
+}
+
+/* Cellules de jour */
+.dayCell {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+    cursor: pointer;
+    min-width: 40px;
+    height: 50px;
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+/* Styles pour les cellules réservées et sélectionnées */
+.dayCell.reserved {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.dayCell.selected {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Bouton de confirmation */
+.confirmButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirmButton:hover {
+    background-color: #45a049;
+}
