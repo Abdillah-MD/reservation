@@ -62,7 +62,7 @@ const LocationsList: React.FC = () => {
                 <div className={style.ListContainer}>
                     {locations.map((location) => (
                         <article key={location._id}>
-                            {location.cover && <Image width={200} height={100} src={location.cover} alt={location.productName} />}
+                            {location.cover && <img width={200} height={100} src={location.cover} alt={location.productName} />}
                             <h3>{location.productName}</h3>
                             <p>Price: {location.price} €/day</p>
                             <Link className={style.reservationBtn} href={`${process.env.NEXT_PUBLIC_URL}/louer/${location._id}`}>Réserver</Link>
