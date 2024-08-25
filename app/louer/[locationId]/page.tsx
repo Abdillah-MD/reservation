@@ -39,21 +39,18 @@ const Page = async ({ params }: { params: LocationParams }): Promise<JSX.Element
     return (
         <main className={style.main}>
             <h1>{"Page d'un bien loué : " + params.locationId}</h1>
-
             <h2>Choisissez une période de réservation :</h2>
 
-            <div className={style.bienEnLocation}>
-                <div className={style.bienEnLocation_content}>
-                    <article>
-                        <img src={product?.cover} width={400} height={250} alt={product?.productName} />
-                        <h3>{product?.productName}</h3>
-                        <p>{product?.price} €</p>
-                    </article>
-                </div>
+            <section className={style.bienEnLocation}>
+                <article className={style.bienEnLocation_content}>
+                    <img src={product?.cover} width={400} height={250} alt={product?.productName} />
+                    <h3>{product?.productName}</h3>
+                    <p>{product?.price} €</p>
+                </article>
                 <div className={style.bienEnLocation_form}>
                     <ReserverForm locationId={params.locationId} />
                 </div>
-            </div>
+            </section>
         </main>
     );
 };

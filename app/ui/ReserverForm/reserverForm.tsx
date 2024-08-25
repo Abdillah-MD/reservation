@@ -105,6 +105,14 @@ const ReserverForm: React.FC<ReserverFormProps> = ({ locationId }) => {
         }
     };
 
+    // Au submit 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        console.log("Les dates envoyé : " + JSON.stringify(state))
+        console.log("Les dates envoyé : " + JSON.stringify(timeInfo))
+    }
+
     useEffect(() => {
         console.log("Les dates choisis : " + JSON.stringify(state))
         console.log("Les dates choisis : " + JSON.stringify(timeInfo))
@@ -130,73 +138,83 @@ const ReserverForm: React.FC<ReserverFormProps> = ({ locationId }) => {
                 ranges={state}
             />
 
-            <h2>Choisissez l&apos;heure de réservation :</h2>
-            <label>
-                Heure de début:
+            <form className={style.reserver} onSubmit={handleSubmit}>
+                <h3>Choisissez l&apos;heure de réservation :</h3>
+                <div className={style.reserver_selectTime}>
+                    <label>
+                        Heure de début: <span>{timeInfo.startTime}</span>
+                        <input
+                            type="time"
+                            name="startTime"
+                            value={timeInfo.startTime}
+                            onChange={handleChange}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Heure de fin: <span>{timeInfo.endTime}</span>
+                        <input
+                            type="time"
+                            name="endTime"
+                            value={timeInfo.endTime}
+                            onChange={handleChange}
+                            required
+                        />
+                    </label>
+                </div>
+
+                <h3>Vos informations :</h3>
+                <div className={style.reserver_userInfoPerso}>
+                    <input
+                        type="text"
+                        name="firstName"
+                        placeholder="Prénom"
+                        value={userInfo.firstName}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="lastName"
+                        placeholder="Nom"
+                        value={userInfo.lastName}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className={style.reserver_userInfoPerso}>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        value={userInfo.email}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        type="tel"
+                        name="phone"
+                        placeholder="N° de téléphone"
+                        value={userInfo.phone}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
                 <input
-                    type="time"
-                    name="startTime"
-                    value={timeInfo.startTime}
+                    type="text"
+                    name="address"
+                    placeholder="Adresse"
+                    value={userInfo.address}
                     onChange={handleChange}
                     required
                 />
-            </label>
-            <label>
-                Heure de fin:
-                <input
-                    type="time"
-                    name="endTime"
-                    value={timeInfo.endTime}
-                    onChange={handleChange}
-                    required
-                />
-            </label>
-
-            <h2>Vos informations :</h2>
-            <input
-                type="text"
-                name="firstName"
-                placeholder="Prénom"
-                value={userInfo.firstName}
-                onChange={handleChange}
-                required
-            />
-            <input
-                type="text"
-                name="lastName"
-                placeholder="Nom"
-                value={userInfo.lastName}
-                onChange={handleChange}
-                required
-            />
-            <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={userInfo.email}
-                onChange={handleChange}
-                required
-            />
-            <input
-                type="text"
-                name="address"
-                placeholder="Adresse"
-                value={userInfo.address}
-                onChange={handleChange}
-                required
-            />
-            <input
-                type="tel"
-                name="phone"
-                placeholder="N° de téléphone"
-                value={userInfo.phone}
-                onChange={handleChange}
-                required
-            />
-
-            <button className={style.reserveButton} onClick={handleReservation}>
-                Réserver
-            </button>
+                <div className={style.submit}>
+                    <button type='submit' className={style.reserveButton} onClick={handleReservation}>
+                        Réserver
+                    </button>
+                </div>
+            </form>
         </>
     )
 }
