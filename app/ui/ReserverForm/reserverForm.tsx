@@ -130,7 +130,7 @@ const ReserverForm: React.FC<ReserverFormProps> = ({ locationId }) => {
                 ranges={state}
             />
 
-            <h2>Choisissez l'heure de réservation :</h2>
+            <h2>Choisissez l&apos;heure de réservation :</h2>
             <label>
                 Heure de début:
                 <input
